@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { FaCommentDots } from "react-icons/fa6";
 import { useDispatch, useSelector } from 'react-redux';
 import { addPost, addComment } from '../Redux/auth/action';
+import Navbar from './Navbar/Navbar';
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const Post = () => {
 
   const handalChangeComment = (e) => {
     const { name, value } = e.target;
-    setCommentValue((prevCommentValue) => ({
+    setCommentValue((prevCommentValue) => ({  
       ...prevCommentValue,
       [name]: value,
     }));
@@ -64,7 +65,7 @@ const Post = () => {
 
   return (
     <>
-
+    <Navbar/>
       <div className="heading text-center font-bold text-2xl m-5 text-gray-800">New Post</div>
 
       <div className=" mx-auto w-10/12 p-4  max-w-2xl ">
@@ -175,7 +176,9 @@ const Post = () => {
       </div>
 
     </>
+
   )
+  
 }
 
 export default Post
